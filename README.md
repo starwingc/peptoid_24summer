@@ -14,4 +14,7 @@ residues.csv: residues info
 
 sequences.csv: NMR Solution peptoids sequence 
 
-smile.csv: NMR Solution peptoids SMILE (needs to check, since it looks like some of the sequences don't have according SMILE in data bank, but most should have) 
+smiles.csv: NMR Solution peptoids SMILE (needs to check, since it looks like some of the sequences don't have according SMILE in data bank, but most should have) 
+
+clean_smiles.csv: remove the *, for generating the structure
+
