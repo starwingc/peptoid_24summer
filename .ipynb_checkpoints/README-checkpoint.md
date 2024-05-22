@@ -4,17 +4,23 @@ This is a repo for summer peptoid small project for Peptoid Conference.
 
 All the peptoid are prepared by prep-tools.
 
-peotoid: a folder containing all 8 structure charaterized using Solution NMR.
+#### data/
+save all the df, csv file generated
 
-peptoiddatabank.ipynb: Code for extracted data from Peptoid Data Bank
+#### peptoid/
+all the Solution NMR pepetoids construct for MDS
 
-peptoids.csv: peptoid info
+#### residues/
+include all the mol2 files of residues in Peptoid Data Bank
 
-residues.csv: residues info
+#### test-output/
+for testing 
 
-sequences.csv: NMR Solution peptoids sequence 
+#### peptoiddatabank.ipynb
+Code for extracted data from Peptoid Data Bank, and create useful dataframes
 
-smiles.csv: NMR Solution peptoids SMILE (needs to check, since it looks like some of the sequences don't have according SMILE in data bank, but most should have) 
+#### build_residue_from_SMILE.ipynb
 
-clean_smiles.csv: remove the *, for generating the structure
+Code for the 3D .mol2 file from smile string in Peptoid Data Bank 
+
 
