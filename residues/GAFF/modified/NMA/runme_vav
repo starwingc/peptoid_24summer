@@ -1,0 +1,1 @@
+python ~/git/prep-tools/scripts/build_amber_residue.py NMA.mol2 NMA CappingAtoms.dat X G 1

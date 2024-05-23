@@ -1,6 +1,6 @@
 Run semi-empirical minimization
  &qmmm
-  scfconv=1.d-7 tight_p_conv=0  qmcharge=0,
+  scfconv=1.d-7 tight_p_conv=0  qmcharge=1,
  /
    6    C1        1.3420        2.7270       -0.8680 
    6    C2        0.2030        2.0510       -0.1490 
