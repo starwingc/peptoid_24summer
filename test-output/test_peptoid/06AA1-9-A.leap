@@ -3,7 +3,7 @@ source leaprc.gaff
 loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/test-output/NNSP/LSP.off
 loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/test-output/NSP/NSP.off
 
-protein = sequence { LSP NSP NSP NSP NSP NSP NSP NSP NSP NSP NHE }
+protein = sequence { LSP NSP NSP NSP NSP NSP NSP NSP NSP NHE }
 savepdb protein 06AA1-9-A.pdb
 saveAmberParm protein 06AA1-9-A.prmtop 06AA1-9-A.crd
 quit
