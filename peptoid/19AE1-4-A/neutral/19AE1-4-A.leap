@@ -1,0 +1,13 @@
+source oldff/leaprc.ff14SB
+source leaprc.gaff
+
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NAE/NAE.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NPE/NPE.off
+
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/N_terminal/modified/NNAE/NNAE.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/C_terminal/modified/CNPE/CNPE.off
+
+protein = sequence { NNAE NPE NAE CNPE }
+savepdb protein 19AE1-4-A.pdb
+saveAmberParm protein 19AE1-4-A.prmtop 19AE1-4-A.crd
+quit

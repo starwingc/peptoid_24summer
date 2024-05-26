@@ -1,5 +1,5 @@
 !!index array str
- "NSP"
+ "LSP"
  "modsDLM"
  "modsNSP"
 !entry.NSP.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg

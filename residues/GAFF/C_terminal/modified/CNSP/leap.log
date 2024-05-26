@@ -1,4 +1,4 @@
-log started: Thu May 23 12:24:25 2024
+log started: Fri May 24 12:09:47 2024
 
 Log file: ./leap.log
 >> #
@@ -355,49 +355,52 @@ Loading: TPF
 >> CHIS = CHIE
 > 
 > 
-> NSP = loadMol2 NSP.edited.mol2
+> CNSP = loadMol2 NSP.edited.mol2
 Loading Mol2 file: ./NSP.edited.mol2
 Reading MOLECULE named CNSP
 > 
 > # Delete N-terminal acetyl and C-terminal dimethyl amine group
-> remove NSP NSP.1.1  # C1
+> remove CNSP CNSP.1.1  # C1
 Breaking bond: .R<NSP 1>.A<C1 1> - .R<NSP 1>.A<C2 2>
 Breaking bond: .R<NSP 1>.A<C1 1> - .R<NSP 1>.A<H2 17>
 Breaking bond: .R<NSP 1>.A<C1 1> - .R<NSP 1>.A<H3 18>
 Breaking bond: .R<NSP 1>.A<C1 1> - .R<NSP 1>.A<H4 19>
-> remove NSP NSP.1.17  # H2
-> remove NSP NSP.1.18  # H3
-> remove NSP NSP.1.19  # H4
-> remove NSP NSP.1.2  # C2
+> remove CNSP CNSP.1.17  # H2
+> remove CNSP CNSP.1.18  # H3
+> remove CNSP CNSP.1.19  # H4
+> remove CNSP CNSP.1.2  # C2
 Breaking bond: .R<NSP 1>.A<C2 2> - .R<NSP 1>.A<O1 3>
 Breaking bond: .R<NSP 1>.A<C2 2> - .R<NSP 1>.A<N 4>
-> remove NSP NSP.1.3  # O1
+> remove CNSP CNSP.1.3  # O1
 > 
 > # Should still be net neutral -- all removed atoms shoulve have had charge 0.0
 > 
-> set NSP name "NSP"
-> set NSP.1 name "NSP"
+> set CNSP name "CNSP"
+> set CNSP.1 name "CNSP"
 > 
-> # Define head atom
-> set NSP head NSP.1.4
-> set NSP.1 connect0 NSP.1.4
+> # Define tail atom
+> set CNSP tail CNSP.1.15
+> set CNSP.1 connect1 CNSP.1.15
 > 
-> savepdb NSP NSP.pdb
-Writing pdb file: NSP.pdb
+> savepdb CNSP CNSP.pdb
+Writing pdb file: CNSP.pdb
+
+/Users/starwingchen/anaconda3/envs/AmberTools20/bin/teLeap: Warning!
+ Converting C-terminal residue name to PDB format: CNSP -> NSP
 > 
 > 
 > # Make a list of info needed for the library
 > # This is necessary in order to make sure the parameter modifications are stored to the off file.
-> myresidue = { NSP modsNSP modsDLM }
-> saveoff myresidue NSP.off
- Creating NSP.off
-Saving NSP.
+> myresidue = { CNSP modsCNSP modsDLM }
+> saveoff myresidue CNSP.off
+ Creating CNSP.off
+Saving CNSP.
 Building topology.
 Building atom parameters.
-Saving modsNSP.
+Saving modsCNSP.
 Saving modsDLM.
 > 
 > quit
 	Quit
 
-Exiting LEaP: Errors = 0; Warnings = 6; Notes = 0.
+Exiting LEaP: Errors = 0; Warnings = 7; Notes = 0.

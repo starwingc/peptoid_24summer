@@ -1,0 +1,17 @@
+source oldff/leaprc.ff14SB
+source leaprc.gaff
+
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NAE/NAE.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NHO/NHO.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NSP/NSP.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NCM/NCM.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NPM/NPM.off
+
+
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/N_terminal/modified/NNCE/NNCE.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/C_terminal/modified/CALA/CALA.off
+
+protein = sequence { NNCE NAE NHO NSP NCM NPM CALA }
+savepdb protein 18AC2-7-A.pdb
+saveAmberParm protein 18AC2-7-A.prmtop 18AC2-7-A.crd
+quit

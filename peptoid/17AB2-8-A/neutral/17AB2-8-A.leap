@@ -1,0 +1,15 @@
+source oldff/leaprc.ff14SB
+source leaprc.gaff
+
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NRN/NRN.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NXF/NXF.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NNE/NNE.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NYZ/NYZ.off
+
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/N_terminal/modified/NNXY/NNXY.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/C_terminal/modified/CNPH/CNPH.off
+
+protein = sequence { NNXY NRN NXF NNE NYZ NRN CNPH }
+savepdb protein 17AB2-8-A.pdb
+saveAmberParm protein 17AB2-8-A.prmtop 17AB2-8-A.crd
+quit

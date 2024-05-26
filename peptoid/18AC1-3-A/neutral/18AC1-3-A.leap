@@ -1,0 +1,11 @@
+source oldff/leaprc.ff14SB
+source leaprc.gaff
+
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NPM/NPM.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/N_terminal/modified/NNCM/NNCM.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/C_terminal/modified/CALA/CALA.off
+
+protein = sequence { NNCM NPM CALA }
+savepdb protein 18AC1-3-A.pdb
+saveAmberParm protein 18AC1-3-A.prmtop 18AC1-3-A.crd
+quit
