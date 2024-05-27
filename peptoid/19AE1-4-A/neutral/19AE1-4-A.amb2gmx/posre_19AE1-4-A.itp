@@ -1,4 +1,4 @@
-; posre_19AE1-4-A.itp created by acpype (v: 2023.10.27) on Sun May 26 13:48:30 2024
+; posre_19AE1-4-A.itp created by acpype (v: 2023.10.27) on Mon May 27 14:08:57 2024
 
 [ position_restraints ]
 ; atom  type      fx      fy      fz
@@ -40,3 +40,4 @@
     64     1  1000  1000  1000
     65     1  1000  1000  1000
     66     1  1000  1000  1000
+    78     1  1000  1000  1000
