@@ -1,0 +1,4 @@
+tleap -f 18AC1-3-A.leap
+
+acpype -p '18AC1-3-A.prmtop' -x '18AC1-3-A.crd'
+

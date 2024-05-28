@@ -9,7 +9,7 @@ DEBUG: prmtop and inpcrd files loaded
 DEBUG: basename defined = '17AB1-5-A'
 DEBUG: getCoords done
 DEBUG: getABCOEFs done
-DEBUG: charge to be balanced: total 0.0000130001
+DEBUG: charge to be balanced: total 0.0000129933
 DEBUG: balanceCharges done
 DEBUG: Balanced TotalCharge 0.0000000000
 DEBUG: PBC = None
@@ -24,31 +24,25 @@ DEBUG: getDihedrals done
 DEBUG: writing GRO file
 DEBUG: Box size estimated
 DEBUG: writing POSRE file
-DEBUG: atomTypes 13
+DEBUG: atomTypes 10
 DEBUG: GMX atomtypes done
-DEBUG: atoms 134
+DEBUG: atoms 129
 DEBUG: GMX atoms done
-DEBUG: bonds 141
+DEBUG: bonds 136
 DEBUG: GMX bonds done
-DEBUG: atomPairs 325
+DEBUG: atomPairs 313
 DEBUG: GMX pairs done
-DEBUG: angles 243
+DEBUG: angles 234
 DEBUG: GMX angles done
 DEBUG: setProperDihedralsCoef done
-DEBUG: properDihedralsCoefRB 349
+DEBUG: properDihedralsCoefRB 337
 DEBUG: properDihedralsAlphaGamma 0
-DEBUG: properDihedralsGmx45 389
+DEBUG: properDihedralsGmx45 381
 ==> Writing GMX dihedrals for GMX 4.5 and higher.
 
 DEBUG: GMX special proper dihedrals done
-DEBUG: improperDihedrals 53
+DEBUG: improperDihedrals 51
 DEBUG: GMX improper dihedrals done
-==> Non-default 1-4 scale parameters detected. Converting individually. Please cite:
-
- BERNARDI, A., FALLER, R., REITH, D., and KIRSCHNER, K. N. ACPYPE update for
- nonuniform 1-4 scale factors: Conversion of the GLYCAM06 force field from AMBER
- to GROMACS. SoftwareX 10 (2019), 100241. doi: 10.1016/j.softx.2019.100241"
-
 DEBUG: prmtop and inpcrd files parsed
 Total time of execution: less than a second
 DEBUG: No tmp folder left to be removed

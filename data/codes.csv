@@ -17,7 +17,7 @@ N-hydroxyglycine,*N(O)CC(=O)*,NHD
 N-(benzoxyethyl)beta-alanine,*N(CCOc1ccccc1)CCC(=O)*,BNB
 N-(2-methylphenyl)glycine,*N(c1c(C)cccc1)CC(=O)*,NMP
 N-(2-iodophenyl)glycine,*N(c1c(I)cccc1)CC(=O)*,NIP
-N-(2-tert-butylphenyl)glycine,*N(c1c(C(C)(C)C)cccc1)CC(=O)*,N2T
+N-(2-tert-butylphenyl)glycine,*N(c1c(C(C)(C)C)cccc1)CC(=O)*,NYT
 (S)-N-(1-naphthylethyl)glycine,*N([C@@H](C)c1cccc2ccccc21)CC(=O)*,NNE
 N-(1-naphthyl)glycine,*N(c1cccc2ccccc21)CC(=O)*,NNP
 N-(azidopropyl)glycine,*N(CCC[N-][N+]#N)CC(=O)*,NAZ
@@ -65,3 +65,5 @@ N-pentylglycine,*N(CCCCC)CC(=O)*,NPY
 N-hexylglycine,*N(CCCCCC)CC(=O)*,NHE
 Glycine,*NCC(=O)*,GLY
 beta-Alanine,*NCCC(=O)*,BAL
+N-p-Tosylglycine,*N(S(=O)(=O)c1ccc(cc1)C)CC(=O)*,NTS
+N-Acetyl-L-alanine,*N(C(C)C(=O)O)CC(=O)*,NAA

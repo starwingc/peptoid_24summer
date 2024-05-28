@@ -6,10 +6,10 @@ loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/
 loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NRN/NRN.off
 loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NPH/NPH.off
 
-loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/C_terminal/modified/CNNE/CNNE.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/peptoid/17AB1-5-A/CNNE/CNNE.off
 loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/N_terminal/modified/NNNE/NNNE.off
 
-protein = sequence { ACE NNE NYZ NRN NPH CNNE }
+protein = sequence { NNNE NPH NRN NYZ CNNE }
 savepdb protein 17AB1-5-A.pdb
 saveAmberParm protein 17AB1-5-A.prmtop 17AB1-5-A.crd
 quit
