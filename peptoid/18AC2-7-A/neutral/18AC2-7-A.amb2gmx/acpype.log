@@ -9,7 +9,7 @@ DEBUG: prmtop and inpcrd files loaded
 DEBUG: basename defined = '18AC2-7-A'
 DEBUG: getCoords done
 DEBUG: getABCOEFs done
-DEBUG: charge to be balanced: total 0.0000009934
+DEBUG: charge to be balanced: total 0.0000119821
 DEBUG: balanceCharges done
 DEBUG: Balanced TotalCharge 0.0000000000
 DEBUG: PBC = None
@@ -26,22 +26,22 @@ DEBUG: Box size estimated
 DEBUG: writing POSRE file
 DEBUG: atomTypes 13
 DEBUG: GMX atomtypes done
-DEBUG: atoms 113
+DEBUG: atoms 130
 DEBUG: GMX atoms done
-DEBUG: bonds 114
+DEBUG: bonds 130
 DEBUG: GMX bonds done
-DEBUG: atomPairs 268
+DEBUG: atomPairs 300
 DEBUG: GMX pairs done
-DEBUG: angles 198
+DEBUG: angles 223
 DEBUG: GMX angles done
 DEBUG: setProperDihedralsCoef done
-DEBUG: properDihedralsCoefRB 274
+DEBUG: properDihedralsCoefRB 309
 DEBUG: properDihedralsAlphaGamma 0
-DEBUG: properDihedralsGmx45 350
+DEBUG: properDihedralsGmx45 384
 ==> Writing GMX dihedrals for GMX 4.5 and higher.
 
 DEBUG: GMX special proper dihedrals done
-DEBUG: improperDihedrals 27
+DEBUG: improperDihedrals 33
 DEBUG: GMX improper dihedrals done
 DEBUG: prmtop and inpcrd files parsed
 Total time of execution: less than a second

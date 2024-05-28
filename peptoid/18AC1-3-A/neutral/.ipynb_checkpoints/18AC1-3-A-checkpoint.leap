@@ -3,10 +3,10 @@ source leaprc.gaff
 
 loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/residues/GAFF/middle/modified/NPM/NPM.off
 
-loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/peptoid/18AC1-3-A/NNAA/NNAA.off
-loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/peptoid/18AC1-3-A/CNTS/CNTS.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/peptoid/18AC1-3-A/NNTS/NNTS.off
+loadoff /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/peptoid/18AC1-3-A/CALA/CALA.off
 
-protein = sequence { NNAA NPM CNTS }
+protein = sequence { NNTS NPM CALA }
 savepdb protein 18AC1-3-A.pdb
 saveAmberParm protein 18AC1-3-A.prmtop 18AC1-3-A.crd
 quit
