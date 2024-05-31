@@ -1,6 +1,5 @@
 # peptoid_24summer
 
-by Starwing Chen 
 
 This is a repo for summer peptoid small project for Peptoid Conference.
 
