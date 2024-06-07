@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N gmx_md.pf
+#PBS -o gmx_md.out
+#PBS -q normal
+#PBS -l nodes=1:ppn=28
+#PBS -l walltime=48:00:00
+#PBS
+
+cd /home/tur54445/work/git/peptoid_24summer/test-output/19AE1-4-A/GAFF/protonated/19AE1-4-A_protonated.amb2gmx
+export OMP_NUM_THREADS=1
+
+module load gromacs/2021.2
+module load mpi/openmpi
+
+mpirun mdrun_mpi -s md.tpr -deffnm md

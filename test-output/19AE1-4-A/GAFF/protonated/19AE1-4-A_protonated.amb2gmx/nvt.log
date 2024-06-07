@@ -34,7 +34,7 @@ GROMACS:      mdrun_mpi, version 2021.2
 Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/mdrun_mpi
 Data prefix:  /gpfs/opt/apps/gromacs-2021.2
 Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/test-output/19AE1-4-A/GAFF/protonated/19AE1-4-A_protonated.amb2gmx
-Process ID:   16908
+Process ID:   21241
 Command line:
   mdrun_mpi -s nvt.tpr -deffnm nvt
 
@@ -58,7 +58,7 @@ C++ compiler flags: -msse4.1 -Wno-missing-field-initializers -fexcess-precision=
 
 
 Running on 1 node with total 28 cores, 28 logical cores
-Hardware detected on host b138 (the node of MPI rank 0):
+Hardware detected on host b166 (the node of MPI rank 0):
   CPU info:
     Vendor: Intel
     Brand:  Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz
@@ -148,7 +148,7 @@ Input Parameters:
    comm-mode                      = Linear
    nstcomm                        = 100
    bd-fric                        = 0
-   ld-seed                        = -281036042
+   ld-seed                        = -672211241
    emtol                          = 10
    emstep                         = 0.01
    niter                          = 20
@@ -313,9 +313,9 @@ Initializing Domain Decomposition on 28 ranks
 Dynamic load balancing: auto
 Minimum cell size due to atom displacement: 0.001 nm
 Initial maximum distances in bonded interactions:
-    two-body bonded interactions: 0.398 nm, LJ-14, atoms 1 4
-  multi-body bonded interactions: 0.398 nm, Proper Dih., atoms 1 4
-Minimum cell size due to bonded interactions: 0.438 nm
+    two-body bonded interactions: 0.397 nm, LJ-14, atoms 1 4
+  multi-body bonded interactions: 0.397 nm, Proper Dih., atoms 1 4
+Minimum cell size due to bonded interactions: 0.437 nm
 Maximum distance for 5 constraints, at 120 deg. angles, all-trans: 0.219 nm
 Estimated maximum distance required for P-LINCS: 0.219 nm
 Scaling the initial minimum size with 1/0.8 (option -dds) = 1.25
@@ -323,7 +323,7 @@ Guess for relative PME load: 0.16
 Will use 20 particle-particle and 8 PME only ranks
 This is a guess, check the performance at the end of the log file
 Using 8 separate PME ranks, as guessed by mdrun
-Optimizing the DD grid for 20 cells with a minimum initial size of 0.547 nm
+Optimizing the DD grid for 20 cells with a minimum initial size of 0.546 nm
 The maximum allowed number of cells is: X 6 Y 6 Z 6
 Domain decomposition grid 4 x 5 x 1, separate PME ranks 8
 PME domain decomposition: 4 x 2 x 1
@@ -342,14 +342,14 @@ The maximum allowed distance for atoms involved in interactions is:
 
 When dynamic load balancing gets turned on, these settings will change to:
 The maximum number of communication pulses is: X 2 Y 2
-The minimum size for domain decomposition cells is 0.598 nm
+The minimum size for domain decomposition cells is 0.597 nm
 The requested allowed shrink of DD cells (option -dds) is: 0.80
 The allowed shrink of domain decomposition cells is: X 0.63 Y 0.79
 The maximum allowed distance for atoms involved in interactions is:
                  non-bonded interactions           1.000 nm
             two-body bonded interactions  (-rdd)   1.000 nm
-          multi-body bonded interactions  (-rdd)   0.598 nm
-  atoms separated by up to 5 constraints  (-rcon)  0.598 nm
+          multi-body bonded interactions  (-rdd)   0.597 nm
+  atoms separated by up to 5 constraints  (-rcon)  0.597 nm
 
 Using 28 MPI processes
 
@@ -421,7 +421,7 @@ J. Chem. Phys. 126 (2007) pp. 014101
 -------- -------- --- Thank You --- -------- --------
 
 There are: 5093 Atoms
-Atom distribution over 20 domains: av 254 stddev 22 min 233 max 277
+Atom distribution over 20 domains: av 254 stddev 22 min 230 max 271
 
 Constraining the starting coordinates (step 0)
 
@@ -432,18 +432,18 @@ We have the following groups for center of mass motion removal:
 RMS relative constraint deviation after constraining: 0.00e+00
 Initial temperature: -nan K
 
-Started mdrun on rank 0 Fri Jun  7 12:32:56 2024
+Started mdrun on rank 0 Fri Jun  7 12:54:41 2024
 
            Step           Time
               0        0.00000
 
    Energies (kJ/mol)
            Bond          Angle    Proper Dih.  Improper Dih.          LJ-14
-    1.22558e+01    1.97448e+01    1.24279e+02    5.21343e-01    6.97910e+01
+    9.77887e+00    1.83357e+01    1.24762e+02    4.95145e-01    6.89404e+01
      Coulomb-14        LJ (SR)  Disper. corr.   Coulomb (SR)   Coul. recip.
-    8.15850e+02    9.39206e+03   -5.67060e+02   -9.02659e+04    4.79013e+02
+    8.14593e+02    1.01679e+04   -5.67060e+02   -9.22219e+04    4.08598e+02
       Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
-   -7.99194e+04           -nan           -nan           -nan           -nan
+   -8.11756e+04           -nan           -nan           -nan           -nan
  Pres. DC (bar) Pressure (bar)   Constr. rmsd
    -1.73698e+02           -nan            nan
 
