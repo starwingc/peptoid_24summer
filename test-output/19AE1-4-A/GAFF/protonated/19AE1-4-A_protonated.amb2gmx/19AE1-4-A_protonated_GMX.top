@@ -21,7 +21,15 @@
  H        H           0.00000  0.00000   A     0.00000e+00   0.00000e+00 ; 0.00  0.0000
  HW       1           1.008    0.0000    A     0.00000e+00   0.00000e+00
  OW       8           16.000   0.0000    A     3.15061e-01   6.36386e-01
+ Cl       17          35.453  -1.0000    A     4.47766e-01   1.48913e-01
 
+[ moleculetype ]
+; molname       nrexcl
+CL              1
+
+[ atoms ]
+; id    at type         res nr  residu name     at name  cg nr  charge
+1       Cl              1       CL              CL       1      -1.00000
 
 [ moleculetype ]
 ; molname	nrexcl
@@ -854,6 +862,7 @@ SOL		2
     64     66     65     77      4   180.00   4.60240   2 ;     C8-   C10-    C9-   H11
     67     81     68     69      4   180.00  43.93200   2 ;     CA-     N-     C-     O
     68     82     81     83      4   180.00   4.18400   2 ;      C-   HN1-     N-   HN2
+
 
 [ system ]
 19AE1-4-A_protonated in water

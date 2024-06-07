@@ -1,23 +1,23 @@
-# load gromacs 
+### load gromacs 
 
 module load gromacs/2021.2
 
-# add a box 
+### add a box 
 
 gmx editconf -f 19AE1-4-A_protonated_GMX.gro -o 19AE1-4-A_protonated_boxed.gro -c -d 1.0 -bt cubic
 
-# solvate the molecule with water
+### solvate the molecule with water
 
 gmx solvate -cp 19AE1-4-A_protonated_boxed.gro -cs spc216.gro -o 19AE1-4-A_protonated_sol.gro -p 19AE1-4-A_protonated_GMX.top 
 
-# make an index file
+### make an index file
 
 gmx make_ndx -f 19AE1-4-A_protonated_sol.gro -o index.ndx 
 q ## 'save and quit', for making a general index
 
-#add an ion.mdp file from voelzlab/tutorials/gmx_protein/ion.mdp
+###add an ion.mdp file from voelzlab/tutorials/gmx_protein/ion.mdp
 
-#modifiy the top file :
+###modifiy the top file :
 
 add these lines to atom types
 
@@ -26,9 +26,10 @@ OW           8      16.000   0.0000  A   3.15061e-01  6.36386e-01
 
 then add this section below
 
-[molecules]
- ; molname	nrexcl
-SOL		2
+[ moleculetype ]
+; molname       nrexcl
+SOL             2
+
 [ atoms ]
 ; id  at type     res nr  res name  at name  cg nr  charge    mass
   1   OW          1       SOL       OW       1      -0.834    16.00000
@@ -52,14 +53,57 @@ SOL		2
 2       1       3       1       104.52  628.02      104.52  628.02
 #endif
 
-#generate an ion.tpr file 
+### generate an ion.tpr file 
 
 gmx grompp -f mdp/ion.mdp -c 19AE1-4-A_protonated_sol.gro -p 19AE1-4-A_protonated_GMX.top -o ion.tpr
 
 
-#neutralize the molecule 
+### neutralize the molecule 
 
 gmx genion -s ion.tpr -o 19AE1-4-A_protonated_ions.gro -p 19AE1-4-A_protonated_GMX.top -pname NA -nname CL -neutral
 16 ## choose the 'SOL' 
 
+### adding the CL in top 19AE1-4-A_protonated_GMX.top 
+
+
+[ moleculetype ]
+; molname       nrexcl
+CL              1
+
+[ atoms ]
+; id    at type         res nr  residu name     at name  cg nr  charge
+1       Cl              1       CL              CL       1      -1.00000
+
+
+### using em.mdp file to make a em.tpr file 
+
+ gmx grompp -f em.mdp -c 19AE1-4-A_protonated_ions.gro -p 19AE1-4-A_protonated_GMX.top -n index.ndx -o em.tpr
+
+### submit the Energy Minization job to node 
+
+qsub em.qsub
+
+### generating the NVT file 
+## can remove the second line for position constraint in voelzlab/tutorials/gmx_protein/nvt.mdp or ignore the warning 
+
+gmx grompp -f nvt.mdp -c em.gro -r em.gro -p 19AE1-4-A_protonated_GMX.top -o nvt.tpr
+
+### submit the NVT run 
+
+qsub nvt.qsub 
+
+### check if the NVT run is good 
+
+gmx energy -f nvt.edr -o temperature.xvg
+16
+0
+
+##if the driftnumber is small, then it is good 
+
+
+### using the nvt file make the npt.tpr
+
  
+
+
+  
