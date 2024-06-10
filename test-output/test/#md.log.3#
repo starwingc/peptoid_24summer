@@ -34,9 +34,9 @@ GROMACS:      gmx mdrun, version 2021.2
 Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/gmx
 Data prefix:  /gpfs/opt/apps/gromacs-2021.2
 Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/test-output/test
-Process ID:   2083
+Process ID:   25212
 Command line:
-  gmx mdrun -nt 1 -s nvt.tpr -deffnm nvt
+  gmx mdrun -v -nt 4 -s nvt.tpr -c 19AE1-4-A_protonated_ions.gro
 
 GROMACS version:    2021.2
 Verified release checksum is d91a739522d82c53dc47c2276b9ac5fae3b2119283e84e3a1c7bed8ce741fda2
@@ -308,11 +308,53 @@ annealing-npoints:           0           0
 
 Changing nstlist from 10 to 100, rlist from 1 to 1
 
-Using 1 MPI thread
-Using 1 OpenMP thread 
+
+Initializing Domain Decomposition on 4 ranks
+Dynamic load balancing: auto
+Minimum cell size due to atom displacement: 0.001 nm
+Initial maximum distances in bonded interactions:
+    two-body bonded interactions: 0.397 nm, LJ-14, atoms 1 4
+  multi-body bonded interactions: 0.397 nm, Proper Dih., atoms 1 4
+Minimum cell size due to bonded interactions: 0.437 nm
+Maximum distance for 5 constraints, at 120 deg. angles, all-trans: 0.219 nm
+Estimated maximum distance required for P-LINCS: 0.219 nm
+Scaling the initial minimum size with 1/0.8 (option -dds) = 1.25
+Using 0 separate PME ranks, as there are too few total
+ ranks for efficient splitting
+Optimizing the DD grid for 4 cells with a minimum initial size of 0.546 nm
+The maximum allowed number of cells is: X 8 Y 8 Z 8
+Domain decomposition grid 4 x 1 x 1, separate PME ranks 0
+PME domain decomposition: 4 x 1 x 1
+Domain decomposition rank 0, coordinates 0 0 0
+
+The initial number of communication pulses is: X 1
+The initial domain decomposition cell size is: X 1.20 nm
+
+The maximum allowed distance for atoms involved in interactions is:
+                 non-bonded interactions           1.000 nm
+            two-body bonded interactions  (-rdd)   1.000 nm
+          multi-body bonded interactions  (-rdd)   1.000 nm
+  atoms separated by up to 5 constraints  (-rcon)  1.197 nm
+
+When dynamic load balancing gets turned on, these settings will change to:
+The maximum number of communication pulses is: X 2
+The minimum size for domain decomposition cells is 0.817 nm
+The requested allowed shrink of DD cells (option -dds) is: 0.80
+The allowed shrink of domain decomposition cells is: X 0.68
+The maximum allowed distance for atoms involved in interactions is:
+                 non-bonded interactions           1.000 nm
+            two-body bonded interactions  (-rdd)   1.000 nm
+          multi-body bonded interactions  (-rdd)   0.817 nm
+  atoms separated by up to 5 constraints  (-rcon)  0.817 nm
+
+Using 4 MPI threads
+Using 1 OpenMP thread per tMPI thread
 
 
-NOTE: Thread affinity was not set.
+NOTE: The number of threads is not equal to the number of (logical) cores
+      and the -pin option is set to auto: will not pin threads to cores.
+      This can lead to significant performance degradation.
+      Consider using -pin on (and -pinoffset in case you run multiple jobs).
 System total charge: 0.000
 Will do PME sum in reciprocal space for electrostatic interactions.
 
@@ -346,15 +388,17 @@ At tolerance 0.005 kJ/mol/ps per atom, equivalent classical 1x1 list would be:
 Using Lorentz-Berthelot Lennard-Jones combination rule
 Removing pbc first time
 
-Initializing LINear Constraint Solver
+Initializing Parallel LINear Constraint Solver
 
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-B. Hess and H. Bekker and H. J. C. Berendsen and J. G. E. M. Fraaije
-LINCS: A Linear Constraint Solver for molecular simulations
-J. Comp. Chem. 18 (1997) pp. 1463-1472
+B. Hess
+P-LINCS: A Parallel Linear Constraint Solver for molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 116-122
 -------- -------- --- Thank You --- -------- --------
 
 The number of constraints is 44
+There are constraints between atoms in different decomposition domains,
+will communicate selected coordinates each lincs iteration
 
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
 S. Miyamoto and P. A. Kollman
@@ -364,6 +408,11 @@ J. Comp. Chem. 13 (1992) pp. 952-962
 -------- -------- --- Thank You --- -------- --------
 
 
+Linking all bonded interactions to atoms
+
+
+Intra-simulation communication will occur every 10 steps.
+
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
 G. Bussi, D. Donadio and M. Parrinello
 Canonical sampling through velocity rescaling
@@ -371,6 +420,7 @@ J. Chem. Phys. 126 (2007) pp. 014101
 -------- -------- --- Thank You --- -------- --------
 
 There are: 10766 Atoms
+Atom distribution over 4 domains: av 2691 stddev 66 min 2654 max 2760
 
 Constraining the starting coordinates (step 0)
 
@@ -378,10 +428,10 @@ Constraining the coordinates at t0-dt (step 0)
 Center of mass motion removal mode is Linear
 We have the following groups for center of mass motion removal:
   0:  rest
-RMS relative constraint deviation after constraining: nan
+RMS relative constraint deviation after constraining: 0.00e+00
 Initial temperature: -nan K
 
-Started mdrun on rank 0 Sun Jun  9 12:50:47 2024
+Started mdrun on rank 0 Sun Jun  9 12:57:24 2024
 
            Step           Time
               0        0.00000
@@ -390,9 +440,23 @@ Started mdrun on rank 0 Sun Jun  9 12:50:47 2024
            Bond          Angle    Proper Dih.  Improper Dih.          LJ-14
     6.12605e+00    2.08930e+01    1.23059e+02    8.95696e-01    7.20144e+01
      Coulomb-14        LJ (SR)  Disper. corr.   Coulomb (SR)   Coul. recip.
-    8.19845e+02    2.43380e+04   -1.23810e+03   -1.92597e+05    9.28591e+02
+    8.19844e+02    2.43380e+04   -1.23810e+03   -1.92590e+05    9.28607e+02
       Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
-   -1.67526e+05           -nan           -nan           -nan           -nan
+   -1.67518e+05           -nan           -nan           -nan           -nan
  Pres. DC (bar) Pressure (bar)   Constr. rmsd
-   -1.87733e+02           -nan           -nan
+   -1.87733e+02           -nan            nan
 
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2021.2
+Source file: src/gromacs/ewald/pme_redistribute.cpp (line 305)
+MPI rank:    2 (out of 4)
+
+Fatal error:
+2672 particles communicated to PME rank 2 are more than 2/3 times the cut-off
+out of the domain decomposition cell of their charge group in dimension x.
+This usually means that your system is not well equilibrated.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------

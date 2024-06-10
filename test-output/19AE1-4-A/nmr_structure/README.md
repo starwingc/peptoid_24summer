@@ -1,1 +1,0 @@
-## Crystal Structure from https://onlinelibrary.wiley.com/doi/10.1002/bip.23267

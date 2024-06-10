@@ -1,2 +1,0 @@
-tleap -f 19AE1-4-A.leap
-acpype -p '19AE1-4-A_protonated.prmtop' -x '19AE1-4-A_protonated.crd'
