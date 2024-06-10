@@ -1,4 +1,4 @@
-                      :-) GROMACS - mdrun_mpi, 2021.2 (-:
+                      :-) GROMACS - gmx mdrun, 2021.2 (-:
 
                             GROMACS is written by:
      Andrey Alekseenko              Emile Apol              Rossen Apostolov     
@@ -30,19 +30,19 @@ under the terms of the GNU Lesser General Public License
 as published by the Free Software Foundation; either version 2.1
 of the License, or (at your option) any later version.
 
-GROMACS:      mdrun_mpi, version 2021.2
-Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/mdrun_mpi
+GROMACS:      gmx mdrun, version 2021.2
+Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/gmx
 Data prefix:  /gpfs/opt/apps/gromacs-2021.2
 Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/test-output/test
-Process ID:   17411
+Process ID:   12049
 Command line:
-  mdrun_mpi -v -deffnm nvt -s nvt.tpr -c 19AE1-4-A_protonatedd_ions.gro -ntomp 1 -pin on
+  gmx mdrun -deffnm nvt -s nvt.tpr -c 19AE1-4-A_protonatedd_ions.gro -pin on -nt 1
 
 GROMACS version:    2021.2
 Verified release checksum is d91a739522d82c53dc47c2276b9ac5fae3b2119283e84e3a1c7bed8ce741fda2
 Precision:          mixed
 Memory model:       64 bit
-MPI library:        MPI
+MPI library:        thread_mpi
 OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 64)
 GPU support:        disabled
 SIMD instructions:  SSE4.1
@@ -51,14 +51,14 @@ RDTSCP usage:       enabled
 TNG support:        enabled
 Hwloc support:      disabled
 Tracing support:    disabled
-C compiler:         /gpfs/opt/base/openmpi-2.1.1/bin/mpicc GNU 8.4.0
+C compiler:         /gpfs/opt/tools/gcc-8.4.0/bin/gcc GNU 8.4.0
 C compiler flags:   -msse4.1 -Wno-missing-field-initializers -fexcess-precision=fast -funroll-all-loops -O3 -DNDEBUG
-C++ compiler:       /gpfs/opt/base/openmpi-2.1.1/bin/mpicxx GNU 8.4.0
+C++ compiler:       /gpfs/opt/tools/gcc-8.4.0/bin/g++ GNU 8.4.0
 C++ compiler flags: -msse4.1 -Wno-missing-field-initializers -fexcess-precision=fast -funroll-all-loops -fopenmp -O3 -DNDEBUG
 
 
 Running on 1 node with total 28 cores, 28 logical cores
-Hardware detected on host b164 (the node of MPI rank 0):
+Hardware detected:
   CPU info:
     Vendor: Intel
     Brand:  Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz
@@ -135,7 +135,7 @@ https://doi.org/10.5281/zenodo.4723562
 -------- -------- --- Thank You --- -------- --------
 
 
-The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1 (and the command-line setting agreed with that)
+The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1
 
 Input Parameters:
    integrator                     = md
@@ -148,7 +148,7 @@ Input Parameters:
    comm-mode                      = Linear
    nstcomm                        = 100
    bd-fric                        = 0
-   ld-seed                        = -42075165
+   ld-seed                        = -709034396
    emtol                          = 10
    emstep                         = 0.01
    niter                          = 20
@@ -165,7 +165,7 @@ Input Parameters:
    nstxout-compressed             = 0
    compressed-x-precision         = 1000
    cutoff-scheme                  = Verlet
-   nstlist                        = 100
+   nstlist                        = 10
    pbc                            = xyz
    periodic-molecules             = false
    verlet-buffer-tolerance        = 0.005
@@ -183,9 +183,9 @@ Input Parameters:
    DispCorr                       = EnerPres
    table-extension                = 1
    fourierspacing                 = 0.16
-   fourier-nx                     = 32
-   fourier-ny                     = 32
-   fourier-nz                     = 32
+   fourier-nx                     = 24
+   fourier-ny                     = 24
+   fourier-nz                     = 24
    pme-order                      = 4
    ewald-rtol                     = 1e-05
    ewald-rtol-lj                  = 0.001
@@ -297,7 +297,7 @@ qm-opts:
        shift-vector               = 
        transformation-matrix      = 
 grpopts:
-   nrdf:     6.99903       21564
+   nrdf:     6.99795       10212
    ref-t:         300         300
    tau-t:         0.1         0.1
 annealing:          No          No
@@ -306,11 +306,10 @@ annealing-npoints:           0           0
    nfreeze:           N           N           N
    energygrp-flags[  0]: 0
 
-Using 1 MPI process
+Changing nstlist from 10 to 100, rlist from 1 to 1
+
+Using 1 MPI thread
 Using 1 OpenMP thread 
-
-
-Overriding thread affinity set outside mdrun_mpi
 
 Pinning threads with an auto-selected logical core stride of 1
 System total charge: 0.000
@@ -332,7 +331,7 @@ Generated table with 1000 data points for 1-4 LJ6.
 Tabscale = 500 points/nm
 Generated table with 1000 data points for 1-4 LJ12.
 Tabscale = 500 points/nm
-Long Range LJ corr.: <C6> 2.7995e-04
+Long Range LJ corr.: <C6> 2.8365e-04
 
 
 Using SIMD 4x4 nonbonded short-range kernels
@@ -369,7 +368,7 @@ Canonical sampling through velocity rescaling
 J. Chem. Phys. 126 (2007) pp. 014101
 -------- -------- --- Thank You --- -------- --------
 
-There are: 10766 Atoms
+There are: 5090 Atoms
 
 Constraining the starting coordinates (step 0)
 
@@ -380,18 +379,18 @@ We have the following groups for center of mass motion removal:
 RMS relative constraint deviation after constraining: nan
 Initial temperature: -nan K
 
-Started mdrun on rank 0 Mon Jun 10 10:03:13 2024
+Started mdrun on rank 0 Mon Jun 10 13:08:14 2024
 
            Step           Time
               0        0.00000
 
    Energies (kJ/mol)
            Bond          Angle    Proper Dih.  Improper Dih.          LJ-14
-    1.17298e+01    2.47606e+01    1.32843e+02    2.69793e+00    6.46310e+01
+    1.06952e+01    1.84309e+01    1.28759e+02    4.62029e-01    6.87350e+01
      Coulomb-14        LJ (SR)  Disper. corr.   Coulomb (SR)   Coul. recip.
-    8.15777e+02    3.03522e+04   -1.23810e+03   -2.07533e+05    5.92404e+02
+    8.15300e+02    1.01651e+04   -5.66400e+02   -9.20551e+04    4.63095e+02
       Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
-   -1.76774e+05           -nan           -nan           -nan           -nan
+   -8.09510e+04           -nan           -nan           -nan           -nan
  Pres. DC (bar) Pressure (bar)   Constr. rmsd
-   -1.87733e+02           -nan           -nan
+   -1.73496e+02           -nan           -nan
 
