@@ -34,7 +34,7 @@ GROMACS:      mdrun_mpi, version 2021.2
 Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/mdrun_mpi
 Data prefix:  /gpfs/opt/apps/gromacs-2021.2
 Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/test-output/test
-Process ID:   11201
+Process ID:   11197
 Command line:
   mdrun_mpi -s em.tpr -deffnm em
 
