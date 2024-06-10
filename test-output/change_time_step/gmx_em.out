@@ -1,0 +1,28 @@
+----------------------------------------
+Begin Batch Job Prologue Mon Jun 10 15:58:13 EDT 2024
+Job ID:           1918691
+Username:         tur54445
+Group:            chem
+Job Name:         gmx_em.pf
+Resources List:   nodes=1:ppn=28,walltime=48:00:00,neednodes=1:ppn=28
+Queue:            normal
+Account:          
+Nodes:            b141 
+----------------------------------------
+End Batch Job Prologue Mon Jun 10 15:58:14 EDT 2024
+----------------------------------------
+----------------------------------------
+Begin Batch Job Epilogue Mon Jun 10 15:58:38 EDT 2024
+Job ID:           1918691
+Username:         tur54445
+Group:            chem
+Job Name:         gmx_em.pf
+Session:          32687
+Limits:           nodes=1:ppn=28,walltime=48:00:00,neednodes=1:ppn=28
+Resources:        cput=00:07:42,vmem=8680256kb,walltime=00:00:25,mem=254948kb,energy_used=0
+Queue:            normal
+Account:          
+Deleting /dev/shm/*...
+----------------------------------------
+End Batch Job Epilogue Mon Jun 10 15:58:59 EDT 2024
+----------------------------------------

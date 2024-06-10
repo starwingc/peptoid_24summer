@@ -1,4 +1,4 @@
-                      :-) GROMACS - gmx mdrun, 2021.2 (-:
+                      :-) GROMACS - mdrun_mpi, 2021.2 (-:
 
                             GROMACS is written by:
      Andrey Alekseenko              Emile Apol              Rossen Apostolov     
@@ -30,19 +30,19 @@ under the terms of the GNU Lesser General Public License
 as published by the Free Software Foundation; either version 2.1
 of the License, or (at your option) any later version.
 
-GROMACS:      gmx mdrun, version 2021.2
-Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/gmx
+GROMACS:      mdrun_mpi, version 2021.2
+Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/mdrun_mpi
 Data prefix:  /gpfs/opt/apps/gromacs-2021.2
 Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/test-output/test
-Process ID:   12049
+Process ID:   1192
 Command line:
-  gmx mdrun -deffnm nvt -s nvt.tpr -c 19AE1-4-A_protonatedd_ions.gro -pin on -nt 1
+  mdrun_mpi -s nvt.tpr -deffnm nvt
 
 GROMACS version:    2021.2
 Verified release checksum is d91a739522d82c53dc47c2276b9ac5fae3b2119283e84e3a1c7bed8ce741fda2
 Precision:          mixed
 Memory model:       64 bit
-MPI library:        thread_mpi
+MPI library:        MPI
 OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 64)
 GPU support:        disabled
 SIMD instructions:  SSE4.1
@@ -51,14 +51,14 @@ RDTSCP usage:       enabled
 TNG support:        enabled
 Hwloc support:      disabled
 Tracing support:    disabled
-C compiler:         /gpfs/opt/tools/gcc-8.4.0/bin/gcc GNU 8.4.0
+C compiler:         /gpfs/opt/base/openmpi-2.1.1/bin/mpicc GNU 8.4.0
 C compiler flags:   -msse4.1 -Wno-missing-field-initializers -fexcess-precision=fast -funroll-all-loops -O3 -DNDEBUG
-C++ compiler:       /gpfs/opt/tools/gcc-8.4.0/bin/g++ GNU 8.4.0
+C++ compiler:       /gpfs/opt/base/openmpi-2.1.1/bin/mpicxx GNU 8.4.0
 C++ compiler flags: -msse4.1 -Wno-missing-field-initializers -fexcess-precision=fast -funroll-all-loops -fopenmp -O3 -DNDEBUG
 
 
 Running on 1 node with total 28 cores, 28 logical cores
-Hardware detected:
+Hardware detected on host b166 (the node of MPI rank 0):
   CPU info:
     Vendor: Intel
     Brand:  Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz
@@ -140,7 +140,7 @@ The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 
 Input Parameters:
    integrator                     = md
    tinit                          = 0
-   dt                             = 0.002
+   dt                             = 0.0005
    nsteps                         = 50000
    init-step                      = 0
    simulation-part                = 1
@@ -148,7 +148,7 @@ Input Parameters:
    comm-mode                      = Linear
    nstcomm                        = 100
    bd-fric                        = 0
-   ld-seed                        = -709034396
+   ld-seed                        = 469399227
    emtol                          = 10
    emstep                         = 0.01
    niter                          = 20
@@ -308,10 +308,11 @@ annealing-npoints:           0           0
 
 Changing nstlist from 10 to 100, rlist from 1 to 1
 
-Using 1 MPI thread
+Using 1 MPI process
 Using 1 OpenMP thread 
 
-Pinning threads with an auto-selected logical core stride of 1
+
+NOTE: Thread affinity was not set.
 System total charge: 0.000
 Will do PME sum in reciprocal space for electrostatic interactions.
 
@@ -320,77 +321,4 @@ U. Essmann, L. Perera, M. L. Berkowitz, T. Darden, H. Lee and L. G. Pedersen
 A smooth particle mesh Ewald method
 J. Chem. Phys. 103 (1995) pp. 8577-8592
 -------- -------- --- Thank You --- -------- --------
-
-Using a Gaussian width (1/beta) of 0.320163 nm for Ewald
-Potential shift: LJ r^-12: -1.000e+00 r^-6: -1.000e+00, Ewald -1.000e-05
-Initialized non-bonded Ewald tables, spacing: 9.33e-04 size: 1073
-
-Generated table with 1000 data points for 1-4 COUL.
-Tabscale = 500 points/nm
-Generated table with 1000 data points for 1-4 LJ6.
-Tabscale = 500 points/nm
-Generated table with 1000 data points for 1-4 LJ12.
-Tabscale = 500 points/nm
-Long Range LJ corr.: <C6> 2.8365e-04
-
-
-Using SIMD 4x4 nonbonded short-range kernels
-
-Using a 4x4 pair-list setup:
-  updated every 100 steps, buffer 0.000 nm, rlist 1.000 nm
-At tolerance 0.005 kJ/mol/ps per atom, equivalent classical 1x1 list would be:
-  updated every 100 steps, buffer 0.000 nm, rlist 1.000 nm
-
-Using Lorentz-Berthelot Lennard-Jones combination rule
-Removing pbc first time
-
-Initializing LINear Constraint Solver
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-B. Hess and H. Bekker and H. J. C. Berendsen and J. G. E. M. Fraaije
-LINCS: A Linear Constraint Solver for molecular simulations
-J. Comp. Chem. 18 (1997) pp. 1463-1472
--------- -------- --- Thank You --- -------- --------
-
-The number of constraints is 44
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-S. Miyamoto and P. A. Kollman
-SETTLE: An Analytical Version of the SHAKE and RATTLE Algorithms for Rigid
-Water Models
-J. Comp. Chem. 13 (1992) pp. 952-962
--------- -------- --- Thank You --- -------- --------
-
-
-++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-G. Bussi, D. Donadio and M. Parrinello
-Canonical sampling through velocity rescaling
-J. Chem. Phys. 126 (2007) pp. 014101
--------- -------- --- Thank You --- -------- --------
-
-There are: 5090 Atoms
-
-Constraining the starting coordinates (step 0)
-
-Constraining the coordinates at t0-dt (step 0)
-Center of mass motion removal mode is Linear
-We have the following groups for center of mass motion removal:
-  0:  rest
-RMS relative constraint deviation after constraining: nan
-Initial temperature: -nan K
-
-Started mdrun on rank 0 Mon Jun 10 13:08:14 2024
-
-           Step           Time
-              0        0.00000
-
-   Energies (kJ/mol)
-           Bond          Angle    Proper Dih.  Improper Dih.          LJ-14
-    1.06952e+01    1.84309e+01    1.28759e+02    4.62029e-01    6.87350e+01
-     Coulomb-14        LJ (SR)  Disper. corr.   Coulomb (SR)   Coul. recip.
-    8.15300e+02    1.01651e+04   -5.66400e+02   -9.20551e+04    4.63095e+02
-      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
-   -8.09510e+04           -nan           -nan           -nan           -nan
- Pres. DC (bar) Pressure (bar)   Constr. rmsd
-   -1.73496e+02           -nan           -nan
 

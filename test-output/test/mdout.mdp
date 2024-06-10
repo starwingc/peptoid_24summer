@@ -1,8 +1,8 @@
 ;
 ;	File 'mdout.mdp' was generated
 ;	By user: unknown (21094)
-;	On host: b158
-;	At date: Mon Jun 10 13:07:05 2024
+;	On host: b166
+;	At date: Mon Jun 10 14:05:57 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2021.2 (-:
@@ -24,7 +24,7 @@ define                   =
 integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
-dt                       = 0.002
+dt                       = 0.0005
 nsteps                   = 50000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
