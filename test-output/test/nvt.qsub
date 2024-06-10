@@ -13,5 +13,5 @@ export OMP_NUM_THREADS=1
 module load gromacs/2021.2
 module load mpi/openmpi
 
-gmx mdrun -v -ntmpi 1 -ntomp 4 -s nvt.tpr -c 19AE1-4-A_protonated_ions.gro
+gmx mdrun -v -nt 1 -ntmpi 1 -npme 12 -s nvt.tpr -c 19AE1-4-A_protonated_ions.gro
 

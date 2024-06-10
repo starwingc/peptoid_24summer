@@ -34,9 +34,9 @@ GROMACS:      mdrun_mpi, version 2021.2
 Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/mdrun_mpi
 Data prefix:  /gpfs/opt/apps/gromacs-2021.2
 Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/test-output/test
-Process ID:   17583
+Process ID:   21137
 Command line:
-  mdrun_mpi -s nvt.tpr -deffnm nvt
+  mdrun_mpi -v -s nvt.tpr -deffnm nvt
 
 GROMACS version:    2021.2
 Verified release checksum is d91a739522d82c53dc47c2276b9ac5fae3b2119283e84e3a1c7bed8ce741fda2
@@ -135,7 +135,7 @@ https://doi.org/10.5281/zenodo.4723562
 -------- -------- --- Thank You --- -------- --------
 
 
-The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1
+The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 4
 
 Input Parameters:
    integrator                     = md
@@ -308,55 +308,14 @@ annealing-npoints:           0           0
 
 Changing nstlist from 10 to 100, rlist from 1 to 1
 
+Using 1 MPI process
+Using 4 OpenMP threads 
 
-Initializing Domain Decomposition on 28 ranks
-Dynamic load balancing: auto
-Minimum cell size due to atom displacement: 0.001 nm
-Initial maximum distances in bonded interactions:
-    two-body bonded interactions: 0.397 nm, LJ-14, atoms 1 4
-  multi-body bonded interactions: 0.397 nm, Proper Dih., atoms 1 4
-Minimum cell size due to bonded interactions: 0.437 nm
-Maximum distance for 5 constraints, at 120 deg. angles, all-trans: 0.219 nm
-Estimated maximum distance required for P-LINCS: 0.219 nm
-Scaling the initial minimum size with 1/0.8 (option -dds) = 1.25
-Guess for relative PME load: 0.16
-Will use 20 particle-particle and 8 PME only ranks
-This is a guess, check the performance at the end of the log file
-Using 8 separate PME ranks, as guessed by mdrun
-Optimizing the DD grid for 20 cells with a minimum initial size of 0.546 nm
-The maximum allowed number of cells is: X 8 Y 8 Z 8
-Domain decomposition grid 4 x 5 x 1, separate PME ranks 8
-PME domain decomposition: 4 x 2 x 1
-Interleaving PP and PME ranks
-This rank does only particle-particle work.
-Domain decomposition rank 0, coordinates 0 0 0
 
-The initial number of communication pulses is: X 1 Y 2
-The initial domain decomposition cell size is: X 1.20 nm Y 0.96 nm
-
-The maximum allowed distance for atoms involved in interactions is:
-                 non-bonded interactions           1.000 nm
-            two-body bonded interactions  (-rdd)   1.000 nm
-          multi-body bonded interactions  (-rdd)   0.957 nm
-  atoms separated by up to 5 constraints  (-rcon)  0.957 nm
-
-When dynamic load balancing gets turned on, these settings will change to:
-The maximum number of communication pulses is: X 2 Y 2
-The minimum size for domain decomposition cells is 0.697 nm
-The requested allowed shrink of DD cells (option -dds) is: 0.80
-The allowed shrink of domain decomposition cells is: X 0.58 Y 0.73
-The maximum allowed distance for atoms involved in interactions is:
-                 non-bonded interactions           1.000 nm
-            two-body bonded interactions  (-rdd)   1.000 nm
-          multi-body bonded interactions  (-rdd)   0.697 nm
-  atoms separated by up to 5 constraints  (-rcon)  0.697 nm
-
-Using 28 MPI processes
-
-Non-default thread affinity set, disabling internal thread affinity
-
-Using 1 OpenMP thread per MPI process
-
+NOTE: The number of threads is not equal to the number of (logical) cores
+      and the -pin option is set to auto: will not pin threads to cores.
+      This can lead to significant performance degradation.
+      Consider using -pin on (and -pinoffset in case you run multiple jobs).
 System total charge: 0.000
 Will do PME sum in reciprocal space for electrostatic interactions.
 
@@ -376,6 +335,7 @@ Generated table with 1000 data points for 1-4 LJ6.
 Tabscale = 500 points/nm
 Generated table with 1000 data points for 1-4 LJ12.
 Tabscale = 500 points/nm
+
 Long Range LJ corr.: <C6> 2.7995e-04
 
 
@@ -389,17 +349,15 @@ At tolerance 0.005 kJ/mol/ps per atom, equivalent classical 1x1 list would be:
 Using Lorentz-Berthelot Lennard-Jones combination rule
 Removing pbc first time
 
-Initializing Parallel LINear Constraint Solver
+Initializing LINear Constraint Solver
 
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-B. Hess
-P-LINCS: A Parallel Linear Constraint Solver for molecular simulation
-J. Chem. Theory Comput. 4 (2008) pp. 116-122
+B. Hess and H. Bekker and H. J. C. Berendsen and J. G. E. M. Fraaije
+LINCS: A Linear Constraint Solver for molecular simulations
+J. Comp. Chem. 18 (1997) pp. 1463-1472
 -------- -------- --- Thank You --- -------- --------
 
 The number of constraints is 44
-There are constraints between atoms in different decomposition domains,
-will communicate selected coordinates each lincs iteration
 
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
 S. Miyamoto and P. A. Kollman
@@ -409,41 +367,9 @@ J. Comp. Chem. 13 (1992) pp. 952-962
 -------- -------- --- Thank You --- -------- --------
 
 
-Linking all bonded interactions to atoms
-
-
-Intra-simulation communication will occur every 10 steps.
-
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
 G. Bussi, D. Donadio and M. Parrinello
 Canonical sampling through velocity rescaling
 J. Chem. Phys. 126 (2007) pp. 014101
 -------- -------- --- Thank You --- -------- --------
-
-There are: 10766 Atoms
-Atom distribution over 20 domains: av 538 stddev 25 min 497 max 574
-
-Constraining the starting coordinates (step 0)
-
-Constraining the coordinates at t0-dt (step 0)
-Center of mass motion removal mode is Linear
-We have the following groups for center of mass motion removal:
-  0:  rest
-RMS relative constraint deviation after constraining: 0.00e+00
-Initial temperature: -nan K
-
-Started mdrun on rank 0 Fri Jun  7 15:06:04 2024
-
-           Step           Time
-              0        0.00000
-
-   Energies (kJ/mol)
-           Bond          Angle    Proper Dih.  Improper Dih.          LJ-14
-    6.12605e+00    2.08930e+01    1.23059e+02    8.95696e-01    7.20144e+01
-     Coulomb-14        LJ (SR)  Disper. corr.   Coulomb (SR)   Coul. recip.
-    8.19844e+02    2.43380e+04   -1.23810e+03   -1.92586e+05    9.28610e+02
-      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
-   -1.67515e+05            nan            nan            nan           -nan
- Pres. DC (bar) Pressure (bar)   Constr. rmsd
-   -1.87733e+02           -nan            nan
 
