@@ -86,6 +86,7 @@ CL              1
 
 ### submit the Energy Minization job to node 
 #### mpirun mdrun_mpi -s em.tpr -deffnm em
+#### gmx mdrun -s em.tpr -v -c em.gro -o em.trr
 
 qsub em.qsub
 
