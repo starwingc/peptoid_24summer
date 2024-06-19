@@ -10,8 +10,8 @@ cp 19AF1-10-A_GMX.top 19AF1-10-A.itp
 
 # Edit the itp file, change the follwing mass of the molecule in itp file :
 
-   286   H     11   NHE   HN1  286     0.231500      1.00000 ; qtot 2.768
-   287   H     11   NHE   HN2  287     0.231500      1.00000 ; qtot 3.000
+   287   H     11   NHE   HN1  287     0.231500      1.00800 ; qtot 4.768
+   288   H     11   NHE   HN2  288     0.231500      1.00800 ; qtot 5.000
 
 # make an top file   
 cat >> 19AF1-10-A.top  <<EOL
@@ -54,10 +54,10 @@ EOL
 cp 19AF1-10-A_sol.top 19AF1-10-A_ion.top
 
 #Create ion.tpr
-gmx grompp -f mdp/ion.mdp -c 19AF1-10-A_sol.gro -p 19AF1-10-A_ion.top -o ion.tpr -maxwarn 3
+gmx grompp -f mdp/ion.mdp -c 19AF1-10-A_sol.gro -p 19AF1-10-A_ion.top -o ion.tpr -maxwarn 2
 
 # Neutralize the molecule
-echo 16 | gmx genion -s ion.tpr -o 19AF1-10-A_ion.gro -p 19AF1-10-A_ion.top -pname NA -nname CL -neutral
+echo 24 | gmx genion -s ion.tpr -o 19AF1-10-A_ion.gro -p 19AF1-10-A_ion.top -pname NA -nname CL -neutral
 
 # Modify the topology file to add solvent parameters to 19AF1-10-A_sol.top
 cat >> 19AF1-10-A_ion.top <<EOL
@@ -68,19 +68,19 @@ cat >> 19AF1-10-A_ion.top <<EOL
 EOL
 
 # Make an index file for our solvated+neutralized  peptoid
-echo "\!23\nname 24 peptoid\nq\n" | gmx make_ndx -f 19AF1-10-A_ion.gro -o index.ndx
+echo "\!39\nname 40 peptoid\nq\n" | gmx make_ndx -f 19AF1-10-A_ion.gro -o index.ndx
 echo "q" | gmx make_ndx -n index.ndx
 
 
 # Prepare a EM.tpr file
-gmx grompp -f em.mdp -c 19AF1-10-A_ion.gro -p 19AF1-10-A_ion.top -n index.ndx -o em_ion.tpr -maxwarn 3
+gmx grompp -f mdp/em.mdp -c 19AF1-10-A_ion.gro -p 19AF1-10-A_ion.top -n index.ndx -o em_ion.tpr -maxwarn 2
 
 #Run the EM 
 gmx mdrun -nt 1 -v -s em_ion.tpr -c em_ion.gro -o em_ion.trr
-
+# Maximum force     =  3.0416125e+02 on atom 36
 
 # Prepare a NVT.tpr file
-gmx grompp -f nvt.mdp -c em_ion.gro -p 19AF1-10-A_ion.top -n index.ndx -o nvt_ion.tpr -maxwarn 3
+gmx grompp -f mdp/nvt.mdp -c em_ion.gro -p 19AF1-10-A_ion.top -n index.ndx -o nvt_ion.tpr -maxwarn 2
 
 #Run the NVT 
 gmx mdrun -nt 1 -v -s nvt_ion.tpr -c nvt_ion.gro -o nvt_ion.trr
@@ -89,7 +89,7 @@ gmx mdrun -nt 1 -v -s nvt_ion.tpr -c nvt_ion.gro -o nvt_ion.trr
 echo "16\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare a NPT.tpr file
-gmx grompp -f npt.mdp -c nvt_ion.gro -p 19AF1-10-A_ion.top -n index.ndx -t state.cpt -o npt_ion.tpr -maxwarn 3
+gmx grompp -f mdp/npt.mdp -c nvt_ion.gro -p 19AF1-10-A_ion.top -n index.ndx -t state.cpt -o npt_ion.tpr -maxwarn 2
 
 #Run the NPT 
 gmx mdrun -nt 1 -v -s npt_ion.tpr -c npt_ion.gro -o npt_ion.trr 
@@ -98,5 +98,5 @@ gmx mdrun -nt 1 -v -s npt_ion.tpr -c npt_ion.gro -o npt_ion.trr
 echo "18\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare for productive run 
-gmx grompp -f prod.mdp -c npt_ion.gro -t state.cpt -p 19AF1-10-A_ion.top -o prod.tpr -maxwarn 3
+gmx grompp -f mdp/prod.mdp -c npt_ion.gro -t state.cpt -p 19AF1-10-A_ion.top -o prod.tpr -maxwarn 2
 
