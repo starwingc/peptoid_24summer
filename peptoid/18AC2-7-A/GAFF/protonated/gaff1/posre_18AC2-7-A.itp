@@ -1,4 +1,4 @@
-; posre_18AC2-7-A.itp created by acpype (v: 2023.10.27) on Thu Jun 20 13:33:12 2024
+; posre_18AC2-7-A.itp created by acpype (v: 2023.10.27) on Thu Jun 20 14:16:25 2024
 
 [ position_restraints ]
 ; atom  type      fx      fy      fz
@@ -68,7 +68,7 @@
    110     1  1000  1000  1000
    120     1  1000  1000  1000
    121     1  1000  1000  1000
-   122     1  1000  1000  1000
    123     1  1000  1000  1000
    124     1  1000  1000  1000
    125     1  1000  1000  1000
+   126     1  1000  1000  1000

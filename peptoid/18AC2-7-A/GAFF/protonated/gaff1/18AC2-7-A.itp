@@ -1,8 +1,8 @@
 ; 18AC2-7-A_GMX.top created by acpype (v: 2023.10.27) on Thu Jun 20 14:16:25 2024
 
-[ defaults ]
+;[ defaults ]
 ; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
-1               2               yes             0.5     0.8333333333
+;1               2               yes             0.5     0.8333333333
 
 [ atomtypes ]
 ;name   bond_type     mass     charge   ptype   sigma         epsilon       Amb
@@ -1285,9 +1285,9 @@
    109    121    120    127      4   180.00   4.60240   2 ;      C-    CA-     N-    H5
    121    125    124    126      4   180.00   4.60240   2 ;     CA-     O-     C-    O3
 
-[ system ]
- 18AC2-7-A
+;[ system ]
+; 18AC2-7-A
 
-[ molecules ]
+;[ molecules ]
 ; Compound        nmols
- 18AC2-7-A        1     
+; 18AC2-7-A        1     
