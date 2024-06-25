@@ -75,16 +75,16 @@ gmx mdrun -nt 1 -v -s nvt_sol.tpr -c nvt_sol.gro -o nvt_sol.trr
 # Check the run 
 echo "16\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
-# Prepare a NPT.tpr file
-gmx grompp -f mdp/npt.mdp -c nvt_sol.gro -p 18AC1-3-A_sol.top -n index.ndx -t state.cpt -o npt_sol.tpr
+# Grompp the NPT equil
+gmx grompp -f mdp/npt.mdp -c nvt_sol.gro -p 18AC1-3-A_sol.top -n index.ndx -o npt_sol.tpr
 
-#Run the NPT 
-gmx mdrun -nt 1 -v -s npt_sol.tpr -c npt_sol.gro -o npt_sol.trr 
+# run the MD (do NOT continue from `state.cpt`)
+gmx mdrun -nt 1 -v -s npt_sol.tpr -c npt_sol.gro -o npt_sol.trr
 
 # Check the run 
 echo "18\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare for productive run 
-gmx grompp -f mdp/prod.mdp -c npt_ion.gro -t state.cpt -p 18AC1-3-A_ion.top -o prod.tpr
+gmx grompp -f mdp/prod.mdp -c npt_sol.gro -t state.cpt -p 18AC1-3-A_sol.top -o prod.tpr
 
 
