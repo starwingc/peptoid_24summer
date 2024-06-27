@@ -77,7 +77,8 @@ gmx mdrun -nt 1 -v -s nvt_sol.tpr -c nvt_sol.gro -o nvt_sol.trr
 echo "16\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare a NPT.tpr file
-gmx grompp -f mdp/npt.mdp -c nvt_sol.gro -p 13AC1-6-A_sol.top -n index.ndx -t state.cpt -o npt_sol.tpr -maxwarn 4
+#gmx grompp -f mdp/npt.mdp -c nvt_sol.gro -p 13AC1-6-A_sol.top -n index.ndx -t state.cpt -o npt_sol.tpr -maxwarn 4
+gmx grompp -f mdp/npt.mdp -c nvt_sol.gro -p 13AC1-6-A_sol.top -n index.ndx  -o npt_sol.tpr -maxwarn 4
 
 #Run the NPT 
 gmx mdrun -nt 1 -v -s npt_sol.tpr -c npt_sol.gro -o npt_sol.trr 
