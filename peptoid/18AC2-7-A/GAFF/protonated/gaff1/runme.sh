@@ -98,7 +98,7 @@ gmx mdrun -nt 1 -v -s nvt_ion.tpr -c nvt_ion.gro -o nvt_ion.trr
 echo "16\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare a NPT.tpr file
-gmx grompp -f mdp/npt.mdp -c nvt_ion.gro -p 18AC2-7-A_ion.top -n index.ndx -t state.cpt -o npt_ion.tpr -maxwarn 2
+gmx grompp -f mdp/npt.mdp -c nvt_ion.gro -p 18AC2-7-A_ion.top -n index.ndx -o npt_ion.tpr -maxwarn 2
 
 #Run the NPT 
 gmx mdrun -nt 1 -v -s npt_ion.tpr -c npt_ion.gro -o npt_ion.trr 

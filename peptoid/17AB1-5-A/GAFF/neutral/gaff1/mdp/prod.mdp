@@ -1,8 +1,8 @@
 title                   = TC5b prod
 ; Run parameters
 integrator              = md        ; leap-frog integrator
-nsteps                  = 500000    ; 2 * 500000 = 1000 ps (1 ns)
-dt                      = 0.002     ; 2 fs
+nsteps                  = 1000000   ; 1 * 1000000 = 1000 ps (1 ns)
+dt                      = 0.001     ; 1 fs
 ; Output control
 nstxout                 = 0         ; suppress bulky .trr file by specifying 
 nstvout                 = 0         ; 0 for output frequency of nstxout,
