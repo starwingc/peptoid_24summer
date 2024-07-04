@@ -12,7 +12,7 @@ nstlog                  = 5000      ; update log file every 10.0 ps
 nstxout-compressed      = 5000      ; save compressed coordinates every 10.0 ps
 compressed-x-grps       = System    ; save the whole system
 ; Bond parameters
-continuation            = yes       ; Restarting after NPT 
+continuation            = no       ; Restarting after NPT 
 constraint_algorithm    = lincs     ; holonomic constraints 
 constraints             = h-bonds   ; bonds involving H are constrained
 lincs_iter              = 1         ; accuracy of LINCS
@@ -33,7 +33,7 @@ tc-grps                 = Protein Non-Protein   ; two coupling groups - more acc
 tau_t                   = 0.1     0.1           ; time constant, in ps
 ref_t                   = 300     300           ; reference temperature, one for each group, in K
 ; Pressure coupling is on
-pcoupl                  = Parrinello-Rahman     ; Pressure coupling on in NPT
+pcoupl                  = Berendsen     ; Pressure coupling on in NPT
 pcoupltype              = isotropic             ; uniform scaling of box vectors
 tau_p                   = 2.0                   ; time constant, in ps
 ref_p                   = 1.0                   ; reference pressure, in bar
@@ -43,4 +43,4 @@ pbc                     = xyz       ; 3-D PBC
 ; Dispersion correction
 DispCorr                = EnerPres  ; account for cut-off vdW scheme
 ; Velocity generation
-gen_vel                 = no        ; Velocity generation is off 
+gen_vel                 = yes        ; Velocity generation is off 
