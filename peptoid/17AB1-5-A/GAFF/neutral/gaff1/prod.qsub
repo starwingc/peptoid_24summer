@@ -12,5 +12,4 @@ export OMP_NUM_THREADS=1
 module load gromacs/2021.2
 module load mpi/openmpi
 
-mpirun -np 8 mdrun_mpi -s prod_PR.tpr -deffnm prod_PR
-#mpirun -np 8 mdrun_mpi -s prod_B.tpr -deffnm prod_B
+mpirun -np 8 mdrun_mpi -s prod.tpr -deffnm prod
