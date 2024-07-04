@@ -53,16 +53,6 @@ cat >> acetonitrile_320_box.itp <<EOL
  
 EOL
 
-# adding the following two atomtypes in peptoid.itp:
-cat >> 17AB2-8-A.itp <<EOL
-
-[atomtypes]
-; n1       n1          0.00000  0.00000   A     3.27352e-01   4.59403e-01 ; 1.84  0.1098
-; hc       hc          0.00000  0.00000   A     2.60018e-01   8.70272e-02 ; 1.46  0.0208
-
- 
-EOL
-
 
 # Make an index file for our solvated+neutralized  peptoid
 echo "\!19\nname 20 peptoid\nq\n" | gmx make_ndx -f 17AB2-8-A_sol.gro -o index.ndx 
@@ -75,7 +65,7 @@ gmx grompp -f mdp/em.mdp -c 17AB2-8-A_sol.gro -p 17AB2-8-A_sol.top -n index.ndx 
 
 #Run the EM 
 gmx mdrun -nt 1 -v -s em_sol.tpr -c em_sol.gro -o em_sol.trr
-# 3.6788292e+01 on atom 5972
+# 8.7168610e+01 on atom 3584
 
 # Prepare a NVT.tpr file
 gmx grompp -f mdp/nvt.mdp -c em_sol.gro -p 17AB2-8-A_sol.top -n index.ndx -o nvt_sol.tpr -maxwarn 4
@@ -96,5 +86,4 @@ gmx mdrun -nt 1 -v -s npt_sol.tpr -c npt_sol.gro -o npt_sol.trr
 echo "18\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare for productive run 
-gmx grompp -f mdp/prod_1.mdp -c npt_sol.gro -t state.cpt -p 17AB2-8-A_sol.top -o prod_1.tpr -maxwarn 4
-gmx grompp -f mdp/prod_2.mdp -c npt_sol.gro -t state.cpt -p 17AB2-8-A_sol.top -o prod_2.tpr -maxwarn 4
+gmx grompp -f mdp/prod.mdp -c npt_sol.gro -p 17AB2-8-A_sol.top -o prod.tpr -maxwarn 4

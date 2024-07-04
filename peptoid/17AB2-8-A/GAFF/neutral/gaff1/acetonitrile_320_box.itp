@@ -1,15 +1,15 @@
 ; smiles_molecule_GMX.itp created by acpype (v: 2023.10.27) on Wed Jul  3 17:05:40 2024
 
-[ atomtypes ]
+;[ atomtypes ]
 ;name   bond_type     mass     charge   ptype   sigma         epsilon       Amb
- c3       c3          0.00000  0.00000   A     3.39967e-01   4.57730e-01 ; 1.91  0.1094
- c1       c1          0.00000  0.00000   A     3.39967e-01   8.78640e-01 ; 1.91  0.2100
- n1       n1          0.00000  0.00000   A     3.25000e-01   7.11280e-01 ; 1.82  0.1700
- hc       hc          0.00000  0.00000   A     2.64953e-01   6.56888e-02 ; 1.49  0.0157
+; c3       c3          0.00000  0.00000   A     3.39967e-01   4.57730e-01 ; ;1.91  0.1094
+; c1       c1          0.00000  0.00000   A     3.39967e-01   8.78640e-01 ; ;1.91  0.2100
+; n1       n1          0.00000  0.00000   A     3.25000e-01   7.11280e-01 ; ;1.82  0.1700
+; hc       hc          0.00000  0.00000   A     2.64953e-01   6.56888e-02 ; ;1.49  0.0157
 
 [ moleculetype ]
 ;name            nrexcl
- smiles_molecule  3
+ UNL  3
 
 [ atoms ]
 ;   nr  type  resi  res  atom  cgnr     charge      mass       ; qtot   bond_type
