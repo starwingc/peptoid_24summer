@@ -48,11 +48,11 @@ gen_vel                 = no        ; Velocity generation is off
 ; Free energy calculation
 free_energy              = yes
 calc-lambda-neighbors    = -1
-init-lambda-state        = 0
+init-lambda-state        = 3
 
 nstdhdl                  = 5000
 separate-dhdl-file       = yes
 dhdl-print-energy        = total
 
 ; lambda-states
-fep-lambdas              = 0.00   
+fep-lambdas              = 0.60
