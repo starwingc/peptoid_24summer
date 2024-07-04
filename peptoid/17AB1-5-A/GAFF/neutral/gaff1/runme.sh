@@ -77,5 +77,4 @@ gmx mdrun -nt 1 -v -s npt_sol.tpr -c npt_sol.gro -o npt_sol.trr
 echo "18\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare for productive run 
-gmx grompp -f mdp/prod_PR.mdp -c npt_sol.gro -t state.cpt -p 17AB1-5-A_sol.top -o prod_PR.tpr -maxwarn 4
-gmx grompp -f mdp/prod_B.mdp -c npt_sol.gro -t state.cpt -p 17AB1-5-A_sol.top -o prod_B.tpr -maxwarn 4
+gmx grompp -f mdp/prod_B.mdp -c npt_sol.gro -p 17AB1-5-A_sol.top -o prod.tpr -maxwarn 4
