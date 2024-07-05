@@ -1,0 +1,33 @@
+----------------------------------------
+Begin Batch Job Prologue Fri Jul  5 16:42:13 EDT 2024
+Job ID:           1938348
+Username:         tur54445
+Group:            chem
+Job Name:         19AE1-4-A_fep.pf
+Resources List:   nodes=6:ppn=28,walltime=48:00:00,neednodes=6:ppn=28
+Queue:            normal
+Account:          
+Nodes:            b071 b072 b073 b074 b077 b078 
+----------------------------------------
+End Batch Job Prologue Fri Jul  5 16:42:14 EDT 2024
+----------------------------------------
+----------------------------------------
+Begin Batch Job Epilogue Fri Jul  5 16:45:45 EDT 2024
+Job ID:           1938348
+Username:         tur54445
+Group:            chem
+Job Name:         19AE1-4-A_fep.pf
+Session:          6616
+Limits:           nodes=6:ppn=28,walltime=48:00:00,neednodes=6:ppn=28
+Resources:        cput=09:29:07,vmem=89390476kb,walltime=00:03:31,mem=8819760kb,energy_used=0
+Queue:            normal
+Account:          
+Deleting /dev/shm/*...
+Deleting /dev/shm/*...
+Deleting /dev/shm/*...
+Deleting /dev/shm/*...
+Deleting /dev/shm/*...
+Deleting /dev/shm/*...
+----------------------------------------
+End Batch Job Epilogue Fri Jul  5 16:46:06 EDT 2024
+----------------------------------------
