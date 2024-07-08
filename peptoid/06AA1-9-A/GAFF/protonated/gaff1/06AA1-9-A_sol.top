@@ -4,13 +4,13 @@
 ; Include Peptoid
 #include "./06AA1-9-A.itp"
 
-; Include chloroform model
-#include "./chloroform_320_box.itp"
+; Include acetonitrile model
+#include "./acetonitrile_320_box.itp"
 
 [ system ]
-06AA1-9-A in chloroform
+06AA1-9-A in acetonitrile 
 
 [ molecules ]
 ; Compound        nmols
  06AA1-9-A        1 
-UNL              1078
+UNL              1671

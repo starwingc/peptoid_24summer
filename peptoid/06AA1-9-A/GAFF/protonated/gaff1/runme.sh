@@ -9,7 +9,7 @@
 cp 06AA1-9-A_GMX.top 06AA1-9-A.itp    
 # make sure to command out the [default] and the [systems] [molecules] section
 
-#make a top file 
+#make a new top file 
 cat >> 06AA1-9-A.top  <<EOL
 ; Include force field parameters
 #include "/usr/local/gromacs/share/gromacs/top/amber99.ff/forcefield.itp"
@@ -33,18 +33,19 @@ gmx editconf -f 06AA1-9-A_GMX.gro -o 06AA1-9-A_boxed.gro -c -d 1 -bt cubic
 # Make an solvated top file
 cp 06AA1-9-A.top 06AA1-9-A_sol.top
 
-# Solvate the molecule with water
-gmx solvate -cp 06AA1-9-A_boxed.gro -cs chloroform_320_box.gro -o 06AA1-9-A_sol.gro -p 06AA1-9-A_sol.top
+# Solvate the molecule with acetonitrile
+gmx solvate -cp 06AA1-9-A_boxed.gro -cs acetonitrile_320_box.gro -o 06AA1-9-A_sol.gro -p 06AA1-9-A_sol.top
 
 # Modify the topology file to add solvent parameters to 06AA1-9-A_sol.top
 cat >> 06AA1-9-A_sol.top <<EOL
 
 ; Include chloroform model
-#include "./chloroform_320_box.itp"
+#include "./acetonitrile_320_box.itp"
 
 EOL
 
 # modified the acetonitrile_320_box.itp, change the name as UNL:
+# commons out the [atomtypes]
 cat >> acetonitrile_320_box.itp <<EOL
 
 [ moleculetype ]
@@ -53,12 +54,12 @@ cat >> acetonitrile_320_box.itp <<EOL
  
 EOL
 
-# adding the following two atomtypes in peptoid.itp, and change the atomic mass:
+# adding the following two atomtypes of solvent in peptoid.itp, and change the atomic mass:
 cat >> 06AA1-9-A.itp <<EOL
 
-[atomtypes]
- cl       cl          0.00000  0.00000   A     3.46595e-01   1.10374e+00 ; 1.95  0.2638
- h3       h3          0.00000  0.00000   A     2.06564e-01   8.70272e-02 ; 1.16  0.0208
+[ atomtypes ]
+ c1       c1          0.00000  0.00000   A     3.39967e-01   8.78640e-01 ; 1.91  0.2100
+ n1       n1          0.00000  0.00000   A     3.25000e-01   7.11280e-01 ; 1.82  0.1700
 
 
 [ atoms ]
@@ -99,7 +100,7 @@ gmx grompp -f mdp/em.mdp -c 06AA1-9-A_ion.gro -p 06AA1-9-A_ion.top -n index.ndx 
 
 #Run the EM 
 gmx mdrun -nt 1 -v -s em_ion.tpr -c em_ion.gro -o em_ion.trr
-# 7.1103256e+01 on atom 198
+# 3.8528027e+01 on atom 2488
 
 # Prepare a NVT.tpr file
 gmx grompp -f mdp/nvt.mdp -c em_ion.gro -p 06AA1-9-A_ion.top -n index.ndx -o nvt_ion.tpr -maxwarn 2
@@ -111,7 +112,7 @@ gmx mdrun -nt 1 -v -s nvt_ion.tpr -c nvt_ion.gro -o nvt_ion.trr
 echo "16\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare a NPT.tpr file
-gmx grompp -f mdp/npt.mdp -c nvt_ion.gro -p 06AA1-9-A_ion.top -n index.ndx -t state.cpt -o npt_ion.tpr -maxwarn 2
+gmx grompp -f mdp/npt.mdp -c nvt_ion.gro -p 06AA1-9-A_ion.top -n index.ndx -o npt_ion.tpr -maxwarn 2
 
 #Run the NPT 
 gmx mdrun -nt 1 -v -s npt_ion.tpr -c npt_ion.gro -o npt_ion.trr 
@@ -120,4 +121,4 @@ gmx mdrun -nt 1 -v -s npt_ion.tpr -c npt_ion.gro -o npt_ion.trr
 echo "18\n0\n" |gmx energy -f ener.edr -o temperature.xvg
 
 # Prepare for productive run 
-gmx grompp -f mdp/prod.mdp -c npt_ion.gro -t state.cpt -p 06AA1-9-A_ion.top -o prod.tpr -maxwarn 2
+gmx grompp -f mdp/prod.mdp -c npt_ion.gro -p 06AA1-9-A_ion.top -o prod.tpr -maxwarn 2

@@ -1,8 +1,8 @@
 title                   = TC5b prod
 ; Run parameters
 integrator              = md        ; leap-frog integrator
-nsteps                  = 1000000    ; 1 * 1000000 = 1000 ps (1 ns)
-dt                      = 0.001     ; 1 fs
+nsteps                  = 500000    ; 2 * 1000000 = 1000 ps (1 ns)
+dt                      = 0.002     ; 2 fs
 ; Output control
 nstxout                 = 0         ; suppress bulky .trr file by specifying 
 nstvout                 = 0         ; 0 for output frequency of nstxout,
@@ -33,7 +33,7 @@ tc-grps                 = Protein Non-Protein   ; two coupling groups - more acc
 tau_t                   = 0.1     0.1           ; time constant, in ps
 ref_t                   = 300     300           ; reference temperature, one for each group, in K
 ; Pressure coupling is on
-pcoupl                  = Parrinello-Rahman     ; Pressure coupling on in NPT
+pcoupl                  = Berendsen             ; Pressure coupling on in NPT
 pcoupltype              = isotropic             ; uniform scaling of box vectors
 tau_p                   = 2.0                   ; time constant, in ps
 ref_p                   = 1.0                   ; reference pressure, in bar
@@ -44,3 +44,4 @@ pbc                     = xyz       ; 3-D PBC
 DispCorr                = EnerPres  ; account for cut-off vdW scheme
 ; Velocity generation
 gen_vel                 = no        ; Velocity generation is off 
+
