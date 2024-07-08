@@ -1,4 +1,4 @@
-title                   = 19AE1-4-A HREX/FEP
+        title                   = 19AE1-4-A HREX/FEP
 
 ; Run parameters
 integrator              = md        ; leap-frog integrator
