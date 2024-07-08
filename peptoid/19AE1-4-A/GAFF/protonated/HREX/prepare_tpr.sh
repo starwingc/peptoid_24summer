@@ -21,6 +21,7 @@ do
   cp ../19AE1-4-A_fep.top .
   cp ../19AE1-4-A_fep.itp .
   cp ../prod_fep.mdp .
+  cp ../index.ndx .  
 
   # Check if files exist
   if [ ! -f "19AE1-4-A_fep.gro" ] || [ ! -f "19AE1-4-A_fep.top" ] || [ ! -f "prod_fep.mdp" ]; then
@@ -35,7 +36,7 @@ do
   sed -i -e "s/init-lambda-state        = 0/init-lambda-state        = ${i}/g" prod_fep.mdp
   
   # Run the GROMACS preprocessor
-  gmx grompp -f prod_fep.mdp -c 19AE1-4-A_fep.gro -p 19AE1-4-A_fep.top -o HREMD.tpr -maxwarn 3
+  gmx grompp -f prod_fep.mdp -c 19AE1-4-A_fep.gro -p 19AE1-4-A_fep.top -n index.ndx -o HREMD.tpr -maxwarn 3
   
   # Print out the last few lines of the modified prod_fep.mdp file
   echo "Contents of prod_fep.mdp in state_${i}:"
