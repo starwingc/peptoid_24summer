@@ -13,6 +13,3 @@ chmod +x prepare_tpr.sh
 # Submit the qsub job
 qsub fep.qsub  
 
-# Copy all the dhdl use for analyze
-chmod +x analyze_dhdl.sh
-./analyze_dhdl.sh
