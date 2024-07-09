@@ -22,9 +22,10 @@ do
   cp ../17AB2-8-A_fep.itp .
   cp ../prod_fep.mdp .
   cp ../index.ndx .  
+  cp ../acetonitrile_320_box.itp .
 
   # Check if files exist
-  if [ ! -f "17AB2-8-A_fep.gro" ] || [ ! -f "17AB2-8-A_fep.top" ] || [ ! -f "prod_fep.mdp" ]|| [ ! -f "index.ndx" ]; then
+  if [ ! -f "17AB2-8-A_fep.gro" ] || [ ! -f "17AB2-8-A_fep.top" ] || [ ! -f "prod_fep.mdp" ]|| [ ! -f "index.ndx" ]|| [ ! -f "acetonitrile_320_box.itp" ]; then
     echo "Error: One or more input files are missing in state_${i} directory!"
     exit 1
   fi
@@ -36,7 +37,7 @@ do
   sed -i -e "s/init-lambda-state        = 0/init-lambda-state        = ${i}/g" prod_fep.mdp
   
   # Run the GROMACS preprocessor
-  gmx grompp -f prod_fep.mdp -c 17AB2-8-A_fep.gro -p 17AB2-8-A_fep.top -n index.ndx -o HREMD.tpr -maxwarn 2
+  gmx grompp -f prod_fep.mdp -c 17AB2-8-A_fep.gro -p 17AB2-8-A_fep.top -n index.ndx -o HREMD.tpr -maxwarn 4
   
   # Print out the last few lines of the modified prod_fep.mdp file
   echo "Contents of prod_fep.mdp in state_${i}:"
