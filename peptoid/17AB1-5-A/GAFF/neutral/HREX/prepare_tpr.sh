@@ -22,10 +22,10 @@ do
   cp ../17AB1-5-A_fep.itp .
   cp ../prod_fep.mdp .
   cp ../index.ndx .  
-  cp ../acetonitrile_320_box.itp .
+  cp ../meoh_320_box.itp .
 
   # Check if files exist
-  if [ ! -f "17AB1-5-A_fep.gro" ] || [ ! -f "17AB1-5-A_fep.top" ] || [ ! -f "prod_fep.mdp" ]|| [ ! -f "index.ndx" ]|| [ ! -f "acetonitrile_320_box.itp" ]; then
+  if [ ! -f "17AB1-5-A_fep.gro" ] || [ ! -f "17AB1-5-A_fep.top" ] || [ ! -f "prod_fep.mdp" ]|| [ ! -f "index.ndx" ]|| [ ! -f "meoh_320_box.itp" ]; then
     echo "Error: One or more input files are missing in state_${i} directory!"
     exit 1
   fi
