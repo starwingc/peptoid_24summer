@@ -19,3 +19,6 @@ qsub fep.qsub
 chmod +x analyze_dhdl.sh
 ./analyze_dhdl.sh
 
+# if only record the peptoid as output, need to make a new gro file that delete all the solvent and ion
+
+gmx editconf -f HREMD.part0001.gro -n index.ndx -o HREMD_withoutwater.part0001.gro
