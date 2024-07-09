@@ -1,15 +1,15 @@
 ;
 ;	File 'mdout.mdp' was generated
-;	By user: starwingchen (501)
-;	On host: 90-9c-4a-cf-d5-8d.wireless.temple.edu
-;	At date: Tue Jul  9 13:47:29 2024
+;	By user: tur54445 (21094)
+;	On host: login1
+;	At date: Tue Jul  9 14:27:05 2024
 ;
 ;	Created by:
-;	                     :-) GROMACS - gmx grompp, 2020.5 (-:
+;	                     :-) GROMACS - gmx grompp, 2021.2 (-:
 ;	
-;	Executable:   /usr/local/gromacs/bin/gmx
-;	Data prefix:  /usr/local/gromacs
-;	Working dir:  /Users/starwingchen/Voelz_Lab/git/peptoid_24summer/peptoid/17AB2-8-A/GAFF/neutral/HREX/state_0
+;	Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/gmx
+;	Data prefix:  /gpfs/opt/apps/gromacs-2021.2
+;	Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/peptoid/17AB2-8-A/GAFF/neutral/HREX/state_0
 ;	Command line:
 ;	  gmx grompp -f prod_fep.mdp -c 17AB2-8-A_fep.gro -p 17AB2-8-A_fep.top -n index.ndx -o HREMD.tpr -maxwarn 4
 
@@ -30,6 +30,8 @@ nsteps                   = 500000
 init-step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
 simulation-part          = 1
+; Multiple time-stepping
+mts                      = no
 ; mode for center of mass motion removal
 comm-mode                = Linear
 ; number of steps for center of mass motion removal
@@ -72,7 +74,7 @@ compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
 ; default, all atoms will be written.
-compressed-x-grps        = peptoid
+compressed-x-grps        = System
 ; Selection of energy groups
 energygrps               = 
 
@@ -151,28 +153,8 @@ refcoord-scaling         = No
 
 ; OPTIONS FOR QMMM calculations
 QMMM                     = no
-; Groups treated Quantum Mechanically
+; Groups treated with MiMiC
 QMMM-grps                = 
-; QM method             
-QMmethod                 = 
-; QMMM scheme           
-QMMMscheme               = normal
-; QM basisset           
-QMbasis                  = 
-; QM charge             
-QMcharge                 = 
-; QM multiplicity       
-QMmult                   = 
-; Surface Hopping       
-SH                       = 
-; CAS space options     
-CASorbitals              = 
-CASelectrons             = 
-SAon                     = 
-SAoff                    = 
-SAsteps                  = 
-; Scale factor for MM charges
-MMChargeScaleFactor      = 1
 
 ; SIMULATED ANNEALING  
 ; Type of annealing for each temperature group (no/single/periodic)

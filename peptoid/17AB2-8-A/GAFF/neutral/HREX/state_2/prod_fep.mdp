@@ -12,7 +12,7 @@ nstfout                 = 0         ; nstvout, and nstfout
 nstenergy               = 5000      ; save energies every 10.0 ps
 nstlog                  = 5000      ; update log file every 10.0 ps
 nstxout-compressed      = 5000      ; save compressed coordinates every 10.0 ps
-compressed-x-grps       = peptoid    ; save the whole system
+compressed-x-grps       = System    ; save the whole system
 
 ; Bond parameters
 continuation            = yes       ; Restarting after NPT 
