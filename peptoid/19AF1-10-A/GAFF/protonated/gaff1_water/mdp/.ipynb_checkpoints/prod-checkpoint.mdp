@@ -55,14 +55,4 @@ DispCorr                = EnerPres  ; account for cut-off vdW scheme
 ; Velocity generation
 gen_vel                 = no        ; Velocity generation is off 
 
-; Free energy calculation
-free_energy              = yes
-calc-lambda-neighbors    = -1
-init-lambda-state        = 0
 
-nstdhdl                  = 5000
-separate-dhdl-file       = yes
-dhdl-print-energy        = total
-
-; lambda-states          = 0     1     2     3     4     5    
-fep-lambdas              = 0.00  0.20  0.40  0.60  0.80  1.0 
