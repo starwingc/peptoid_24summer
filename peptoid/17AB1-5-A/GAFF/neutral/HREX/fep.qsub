@@ -1,8 +1,8 @@
 #!/bin/bash
 #PBS -N 17AB1-5-A_fep.pf
 #PBS -o 17AB1-5-A_fep.out
-#PBS -q medium
-#PBS -l nodes=3:ppn=16
+#PBS -q normal
+#PBS -l nodes=2:ppn=28
 #PBS -l walltime=48:00:00
 
 cd $PBS_O_WORKDIR
