@@ -2,16 +2,16 @@
 ;	File 'mdout.mdp' was generated
 ;	By user: tur54445 (21094)
 ;	On host: login2
-;	At date: Fri Jul  5 16:42:06 2024
+;	At date: Mon Jul  8 14:48:59 2024
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2021.2 (-:
 ;	
 ;	Executable:   /gpfs/opt/apps/gromacs-2021.2/bin/gmx
 ;	Data prefix:  /gpfs/opt/apps/gromacs-2021.2
-;	Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/peptoid/19AE1-4-A/GAFF/protonated/HREX_6node/state_5
+;	Working dir:  /gpfs/work/tur54445/git/peptoid_24summer/peptoid/19AE1-4-A/GAFF/protonated/HREX/state_5
 ;	Command line:
-;	  gmx grompp -f prod_fep.mdp -c 19AE1-4-A_fep.gro -p 19AE1-4-A_fep.top -o HREMD.tpr -maxwarn 3
+;	  gmx grompp -f prod_fep.mdp -c 19AE1-4-A_fep.gro -p 19AE1-4-A_fep.top -n index.ndx -o HREMD.tpr -maxwarn 3
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -74,7 +74,7 @@ compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
 ; default, all atoms will be written.
-compressed-x-grps        = System
+compressed-x-grps        = peptoid
 ; Selection of energy groups
 energygrps               = 
 
@@ -136,7 +136,7 @@ nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
-tc-grps                  = Protein Non-Protein
+tc-grps                  = peptoid non-peptoid
 ; Time constant (ps) and reference temperature (K)
 tau_t                    = 0.1     0.1
 ref_t                    = 300     300
