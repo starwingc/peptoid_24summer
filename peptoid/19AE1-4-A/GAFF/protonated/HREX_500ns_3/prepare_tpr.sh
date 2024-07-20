@@ -17,7 +17,7 @@ do
   mkdir -p state_${i} && cd state_${i}
 
   # Copy the necessary input files into the directory
-  mv HREMD.part0001.gro 19AE1-4-A_fep.gro
+ # mv HREMD.part0001.gro 19AE1-4-A_fep.gro
   cp ../19AE1-4-A_fep.top .
   cp ../19AE1-4-A_fep.itp .
   cp ../prod_fep.mdp .
