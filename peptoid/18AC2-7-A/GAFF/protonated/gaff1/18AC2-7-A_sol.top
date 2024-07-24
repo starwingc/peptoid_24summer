@@ -1,0 +1,16 @@
+; Include force field parameters
+#include "/usr/local/gromacs/share/gromacs/top/amber99.ff/forcefield.itp"
+
+; Include Peptoid
+#include "./18AC2-7-A.itp"
+
+; Include meoh model
+#include "./meoh_320_box.itp"
+
+[ system ]
+18AC2-7-A in meoh
+
+[ molecules ]
+; Compound        nmols
+ 18AC2-7-A        1 
+UNL              1041

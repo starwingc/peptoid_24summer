@@ -1,0 +1,4 @@
+tleap -f 18AC2-7-A.leap
+acpype -p '18AC2-7-A.prmtop' -x '18AC2-7-A.crd' -a gaff
+
+

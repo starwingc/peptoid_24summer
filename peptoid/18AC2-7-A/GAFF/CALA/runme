@@ -1,0 +1,1 @@
+python ~/Voelz_Lab/git/prep-tools/scripts/build_amber_residue.py -s N ALA.mol2 CALA CappingAtoms.dat C G 0
