@@ -25,6 +25,7 @@ Code for extracted data from Peptoid Data Bank, and create useful dataframes
 
 Code for the 3D .mol2 file from smile string in Peptoid Data Bank 
 
-#### topo_from_tleap.ipynb
+#### graph.ipynb
+Create flowchart for pipline demonstration
 
 

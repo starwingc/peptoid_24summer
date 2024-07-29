@@ -1,5 +1,7 @@
 # peptoid_24summer
 
+test
+
 This is a repo for summer peptoid small project for Peptoid Conference.
 
 All the peptoid are prepared by prep-tools.
@@ -23,6 +25,7 @@ Code for extracted data from Peptoid Data Bank, and create useful dataframes
 
 Code for the 3D .mol2 file from smile string in Peptoid Data Bank 
 
-#### topo_from_tleap.ipynb
+#### graph.ipynb
+Create flowchart for pipline demonstration
 
 
